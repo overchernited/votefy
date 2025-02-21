@@ -1,6 +1,7 @@
 import DynamicInputs from "../components/DynamicInputs";
 import MagicButton from "../components/MagicButton";
-import { useAuth } from "../contexts/useContext";
+import { useAuth } from "../contexts/auth/useContext";
+import { InputProvider } from "../contexts/input/inputContext";
 
 const AdminDashboard = () => {
   const { logout, user } = useAuth();
@@ -16,7 +17,9 @@ const AdminDashboard = () => {
           Salir de la cuenta
         </MagicButton>
       </div>
+      <InputProvider>
       <DynamicInputs />
+      </InputProvider>
     </>
   );
 };

@@ -42,7 +42,7 @@ const DynamicInputs = () => {
             className="flex flex-row items-center justify-around rounded-md w-[90%] h-[15%] shrink-0"
           >
             <CustomInput
-              value={candidate.name}
+              name={`postulate ${index + 1}`}
               icon={faUserGroup}
               onBlur={() => {}}
               onChange={(e) => handleChangeName(index, e.target.value)}
