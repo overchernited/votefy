@@ -35,7 +35,7 @@ const DynamicInputs = () => {
   return (
     <div className="flex flex-col justify-center items-center w-full h-full">
       <p className="text-4xl font-extrabold">Postulaciones</p>
-      <div className="w-[80%] h-[95vh] max-h-[90vh] overflow-y-auto overflow-x-hidden flex flex-col items-center p-4 gap-4 bg-white rounded-lg m-2">
+      <div className="w-[80%] h-[90vh] max-h-[95vh] overflow-y-auto overflow-x-hidden flex flex-col items-center p-4 gap-4 bg-white rounded-lg m-2">
         {candidates.map((candidate, index) => (
           <div
             key={index}
