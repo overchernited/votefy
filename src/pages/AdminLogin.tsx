@@ -5,6 +5,7 @@ import { useForm, Controller } from "react-hook-form";
 import { faCrown, faKey, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import loginUser from "../services/auth";
 import { useState } from "react";
+import { InputProvider } from "../contexts/input/inputContext";
 
 interface FormData {
   email: string;
@@ -65,43 +66,45 @@ const AdminLogin = () => {
           className="mt-5 flex flex-col justify-center items-center h-[50%] relative"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <Controller
-            name="email"
-            control={control}
-            rules={{
-              required: "El nombre es obligatorio",
-              pattern: {
-                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                message: "Ingrese un correo válido",
-              },
-            }}
-            render={({ field: { value, onChange, onBlur } }) => (
-              <CustomInput
-                value={value}
-                onChange={onChange}
-                onBlur={onBlur}
-                placeholder="E-mail"
-                icon={faEnvelope}
-                className="w-[80%]"
-              />
-            )}
-          />
-          <Controller
-            name="password"
-            control={control}
-            rules={{ required: "La contraseña es obligatorio" }}
-            render={({ field: { value, onChange, onBlur } }) => (
-              <CustomInput
-                value={value}
-                onChange={onChange}
-                onBlur={onBlur}
-                placeholder="Contraseña"
-                icon={faKey}
-                
-                className="w-[80%]"
-              />
-            )}
-          />
+          <InputProvider>
+            <Controller
+              name="email"
+              control={control}
+              rules={{
+                required: "El email es obligatorio",
+                pattern: {
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: "Ingrese un correo válido",
+                },
+              }}
+              render={({ field: { onChange, onBlur } }) => (
+                <CustomInput
+                  name="Email"
+                  onChange={onChange}
+                  onBlur={onBlur}
+                  placeholder="E-mail"
+                  icon={faEnvelope}
+                  className="w-[80%]"
+                />
+              )}
+            />
+            <Controller
+              name="password"
+              control={control}
+              rules={{ required: "La contraseña es obligatoria" }}
+              render={({ field: { value, onChange, onBlur } }) => (
+                <CustomInput
+                  name="password"
+                  value={value}
+                  onChange={onChange}
+                  onBlur={onBlur}
+                  placeholder="Contraseña"
+                  icon={faKey}
+                  className="w-[80%]"
+                />
+              )}
+            />
+          </InputProvider>
 
           <MagicButton
             style="styled"

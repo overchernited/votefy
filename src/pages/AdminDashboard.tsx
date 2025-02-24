@@ -1,4 +1,4 @@
-import DynamicInputs from "../components/DynamicInputs";
+import DynamicFormContainer from "../components/DynamicInputs";
 import MagicButton from "../components/MagicButton";
 import { useAuth } from "../contexts/auth/useContext";
 import { InputProvider } from "../contexts/input/inputContext";
@@ -18,7 +18,7 @@ const AdminDashboard = () => {
         </MagicButton>
       </div>
       <InputProvider>
-      <DynamicInputs />
+        <DynamicFormContainer />
       </InputProvider>
     </>
   );
